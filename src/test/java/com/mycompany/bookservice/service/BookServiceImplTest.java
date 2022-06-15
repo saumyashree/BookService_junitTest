@@ -53,7 +53,7 @@ public class BookServiceImplTest {
     }
 
     @Test
-    void getAllBookTest(){
+    void getBookTest(){
         List<BookDTO> bookDTOList=new ArrayList<>();
         BookDTO bookDtO=new BookDTO();
         bookDTOList.add(bookDtO);
@@ -64,12 +64,12 @@ public class BookServiceImplTest {
 
     }
     @Test
-    void getBookTest() {
+    void getOneBookTest() {
         BookEntity be = new BookEntity();
         be.setBookId(1L);
         Mockito.when(bookRepository.findById(Mockito.any())).thenReturn(Optional.of(be));
         BookDTO bookDTO = bookService.getBook(1L);
-        Assertions.assertEquals(1L, bookDTO.getBookId());
+        Assertions.assertEquals(1, bookDTO.getBookId());
     }
 
 }
